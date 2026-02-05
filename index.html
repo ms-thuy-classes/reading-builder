@@ -125,27 +125,48 @@
 
         // 4. Load bài báo và tự động đóng sidebar sau khi chọn
         async function loadArticle(fileId) {
-            try {
-                const res = await fetch(`${fileId}.json`);
-                const data = await res.json();
-                renderArticle(data);
-                toggleSidebar(); // Đóng sidebar sau khi chọn xong
-            } catch (e) {
-                alert("Lỗi tải file JSON!");
-            }
-        }
+    try {
+        const response = await fetch(`${fileId}.json`);
+        const data = await response.json();
+        
+        // Nạp phần BÀI BÁO (Article)
+        renderArticleContent(data.article, data.study_material.highlights);
+        
+        // Nạp phần HỌC LIỆU (Study Material)
+        renderVocab(data.study_material.vocabulary);
+        renderQuiz(data.study_material.quiz);
+        
+        // Đóng sidebar và đổi theme
+        if(fileId === 'Valentine') document.body.classList.add('valentine-theme');
+        else document.body.classList.remove('valentine-theme');
+        toggleSidebar();
 
-      function renderArticle(data) {
-    // Đổi màu theme nếu là bài Valentine
-    if (data.title.includes("Valentine")) {
-        document.body.classList.add('valentine-theme');
-    } else {
-        document.body.classList.remove('valentine-theme');
+    } catch (e) {
+        console.error("Lỗi tải file:", e);
     }
+}
 
-    document.getElementById('title').innerText = data.title;
+function renderArticleContent(article, highlights) {
+    document.getElementById('title').innerText = article.title;
     const contentDiv = document.getElementById('content');
-    contentDiv.innerHTML = ""; // Xóa nội dung cũ
+    contentDiv.innerHTML = ""; // Xóa trắng nội dung cũ
+
+    article.sections.forEach(sec => {
+        let sectionHTML = `<div class="section-box">`;
+        if (sec.heading) sectionHTML += `<h3>${sec.heading}</h3>`;
+        if (sec.image) sectionHTML += `<img src="${sec.image}" class="img-fluid" style="width:100%; border-radius:15px; margin: 15px 0;">`;
+        
+        // Xử lý text để tạo các từ có thể click
+        let wordsHTML = sec.text.split(" ").map(word => {
+            const clean = word.toLowerCase().replace(/[^a-z]/g, "");
+            const isHl = highlights.includes(clean) ? "hl" : "";
+            return `<span class="word ${isHl}" onclick="quickTranslate('${clean}')">${word} </span>`;
+        }).join("");
+
+        sectionHTML += `<p>${wordsHTML}</p></div>`;
+        contentDiv.innerHTML += sectionHTML;
+    });
+} // Xóa nội dung cũ
 
     // Duyệt qua từng section để hiển thị ảnh và chữ
     data.sections.forEach(section => {
