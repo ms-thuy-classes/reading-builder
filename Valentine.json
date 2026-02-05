@@ -1,60 +1,49 @@
 {
-  "title": "Valentine’s Day: History, Economics, and the Great Debate",
-  "sections": [
-    {
-      "heading": "Introduction",
-      "text": "Valentine’s Day is celebrated on February 14 each year with chocolates, flowers, and brightly colored cards featuring hearts, Cupids, and expressions of love. Although traditionally celebrated as a reflection of romantic love, the holiday has evolved into a more general celebration of friendship and appreciation, one shared with family, friends, neighbors, and coworkers. The holiday is even now celebrated by buying gifts for our pets and for ourselves, indulging in self-gifting as a way to prioritize personal well-being.",
-      "imageUrl": "https://cdn.britannica.com/s:1500x800,q:85/54/189954-050-58F58315/Valentine-postcards.jpg",
-      "imageAlt": "Vintage Valentine's Day postcards"
-    },
-    {
-      "heading": "History of the Holiday",
-      "text": "St. Valentine was the name of legendary Christian martyrs killed during the persecution of Christians by Roman emperor Claudius II Gothicus about 270 ce. One account explains that Valentine was condemned to death for defying the emperor by secretly marrying couples to spare the husbands from conscription and war. While in prison, he allegedly befriended his jailer’s daughter and wrote her a farewell message signed 'from your Valentine.'",
-      "imageUrl": "https://cdn.britannica.com/s:1500x800,q:85/29/189929-050-BEA606E6/Saint-Valentine-curing-epilepsy.jpg",
-      "imageAlt": "St. Valentine curing a man of epilepsy"
-    },
-    {
-      "heading": "The Rise of Romantic Love",
-      "text": "It took another thousand years before the day became associated with romance. Many scholars credit Geoffrey Chaucer’s 1380 poem 'The Parlement of Foules' for connecting the feast day with love, describing it as the time when birds choose their mates. By the 1840s, the British 'Penny Post' made sending anonymous cards affordable, and Esther Howland, the 'mother of the American valentine,' began mass-producing elaborate laced cards in the US.",
-      "imageUrl": "https://cdn.britannica.com/s:1500x800,q:85/53/179253-050-B3B8B841/Geoffrey-Chaucer.jpg",
-      "imageAlt": "Portrait of Geoffrey Chaucer"
-    },
-    {
-      "heading": "Economics and Modern Spending",
-      "text": "Today, Valentine's Day is a massive economic driver. In 2025, spending in the U.S. reached $27.5 billion, with an average of $188 spent per consumer. Popular categories include jewelry ($6.5B), an evening out ($5.4B), and flowers ($2.9B). Interestingly, 32% of Americans now buy gifts for their pets, and Gen Z leads spending with an average of $235.",
-      "imageUrl": "https://cdn.britannica.com/s:1500x800,q:85/24/189924-050-8911C881/Claudius-II-Gothicus-coin.jpg",
-      "imageAlt": "Roman coin depicting Claudius II Gothicus"
-    },
-    {
-      "heading": "The Debate: Should We Still Celebrate?",
-      "text": "The holiday faces intense debate. PROS: It provides a special opportunity to celebrate partners, boosts the economy for small businesses like florists and restaurants, and offers a fun day for self-care. CONS: Critics argue love should be an everyday practice, the day has become overly commercialized and expensive, and its original romantic meaning has been diluted by celebrating everyone including pets.",
-      "imageUrl": null,
-      "imageAlt": null
-    }
-  ],
-  "highlights": ["traditionally", "reflection", "evolved", "appreciation", "indulging", "prioritize", "well-being", "legendary", "martyrs", "persecution", "condemned", "defying", "conscription", "execution", "commemorate", "inaugurated", "raucous", "equivalent", "cemented", "commercialized", "elaborate", "projections", "generational", "astounding", "manipulative"],
-  "vocab": [
-    { "w": "evolved", "vi": "phát triển dần, tiến hóa", "en": "developed gradually over time", "ex": "The holiday has evolved into a general celebration." },
-    { "w": "indulging", "vi": "nuông chiều bản thân", "en": "allowing oneself to enjoy something", "ex": "Indulging in self-gifting for personal well-being." },
-    { "w": "defying", "vi": "thách thức, bất tuân", "en": "openly resisting or refusing to obey", "ex": "Valentine was killed for defying the emperor." },
-    { "w": "conscription", "vi": "lệnh tòng quân, nghĩa vụ", "en": "compulsory enlistment for state service", "ex": "Marrying couples to spare husbands from conscription." },
-    { "w": "commercialized", "vi": "thương mại hóa", "en": "organized to make a profit", "ex": "Critics say the day is overly commercialized." }
-  ],
-  "questions": [
-    { "q": "What date is Valentine's Day celebrated?", "a": ["Feb 14", "Feb 15", "Jan 28", "May 1"], "correct": 0 },
-    { "q": "Who was the Roman emperor who persecuted St. Valentine?", "a": ["Julius Caesar", "Claudius II Gothicus", "Nero", "Augustus"], "correct": 1 },
-    { "q": "Why was Valentine condemned to death according to the text?", "a": ["Stealing jewelry", "Secretly marrying couples", "Writing poems", "Being a beekeeper"], "correct": 1 },
-    { "q": "Who is the 'mother of the American valentine'?", "a": ["Margery Brews", "Esther Howland", "Ellen Castelow", "Emily Temple"], "correct": 1 },
-    { "q": "Which poet first linked the day to romantic love?", "a": ["Shakespeare", "Chaucer", "Charles d’Orléans", "John Paston"], "correct": 1 },
-    { "q": "What was the 'Penny Post'?", "a": ["A gift shop", "Affordable postal service", "A type of chocolate", "A Roman festival"], "correct": 1 },
-    { "q": "How much was the total Valentine's spending in the U.S. in 2025?", "a": ["$1.4 billion", "$27.5 billion", "$5.4 billion", "$188 million"], "correct": 1 },
-    { "q": "Which generation spends the most on average?", "a": ["Millennials", "Gen X", "Baby Boomers", "Gen Z"], "correct": 3 },
-    { "q": "What percentage of Americans buy gifts for pets?", "a": ["10%", "22%", "32%", "40%"], "correct": 2 },
-    { "q": "The Roman festival Lupercalia was associated with:", "a": ["Winter", "Fertility and Spring", "War", "Poetry"], "correct": 1 },
-    { "q": "What does 'conscription' mean?", "a": ["Marriage", "Military draft", "Execution", "Gift giving"], "correct": 1 },
-    { "q": "What is a 'CON' argument mentioned in the text?", "a": ["Economic boom", "Everyday love practice", "Over-commercialization", "Self-care opportunity"], "correct": 2 },
-    { "q": "Where is the skull of St. Valentine kept today?", "a": ["Dublin", "Rome", "Prague", "London"], "correct": 1 },
-    { "q": "What does 'indulging' mean?", "a": ["Avoiding", "Enjoying pleasure", "Working", "Fighting"], "correct": 1 },
-    { "q": "The term 'martyr' refers to someone who:", "a": ["Wins a war", "Dies for their beliefs", "Writes poems", "Sells cards"], "correct": 1 }
-  ]
+  "article": {
+    "title": "Valentine’s Day | Pros, Cons, & History",
+    "headerImage": "https://cdn.britannica.com/s:1500x800,q:85/54/189954-050-58F58315/Valentine-postcards.jpg",
+    "sections": [
+      {
+        "heading": "Introduction",
+        "image": null,
+        "text": "Valentine’s Day is celebrated on February 14 each year with chocolates, flowers, and brightly colored cards featuring hearts, Cupids, and expressions of love. Although traditionally celebrated as a reflection of romantic love, the holiday has evolved into a more general celebration of friendship and appreciation."
+      },
+      {
+        "heading": "History of the Holiday",
+        "image": "https://cdn.britannica.com/s:1500x800,q:85/29/189929-050-BEA606E6/Saint-Valentine-curing-epilepsy.jpg",
+        "text": "St. Valentine was a legendary Christian martyr killed during the persecution by Roman emperor Claudius II Gothicus. One account explains that Valentine was condemned to death for defying the emperor by secretly marrying couples to spare the husbands from conscription and war."
+      },
+      {
+        "heading": "Origin of the Holiday",
+        "image": "https://cdn.britannica.com/s:1500x800,q:85/02/189902-050-70F428DD/Pope-Gelasius-I-1493.jpg",
+        "text": "Valentine’s Day did not become a holiday until the 5th century, when Pope Gelasius I inaugurated a feast day. Some believe it was a replacement for the Roman festival of Lupercalia, a raucous affair associated with fertility rituals."
+      },
+      {
+        "heading": "Chaucer and Romance",
+        "image": "https://cdn.britannica.com/s:1500x800,q:85/53/179253-050-B3B8B841/Geoffrey-Chaucer.jpg",
+        "text": "It took another thousand years before the day became seen as a time for lovers. Scholars believe Geoffrey Chaucer’s poem 'The Parlement of Foules' first connected the feast day with romance, describing it as the time when birds choose their mates."
+      },
+      {
+        "heading": "Modern Economics",
+        "image": "https://cdn.britannica.com/s:1500x800,q:85/24/189924-050-8911C881/Claudius-II-Gothicus-coin.jpg",
+        "text": "In 2025, spending reached $27.5 billion in the US. Popular categories include jewelry, flowers, and candy. Interestingly, 32% of Americans now buy gifts for their pets, showing how the holiday has evolved."
+      }
+    ]
+  },
+  "study_material": {
+    "highlights": ["traditionally", "reflection", "evolved", "appreciation", "legendary", "martyr", "persecution", "condemned", "defying", "conscription", "inaugurated", "raucous", "fertility", "associated"],
+    "vocabulary": [
+      { "w": "evolved", "vi": "phát triển dần", "en": "developed gradually", "ex": "The holiday has evolved into a general celebration." },
+      { "w": "persecution", "vi": "sự ngược đãi", "en": "hostility and ill-treatment", "ex": "The persecution of Christians." },
+      { "w": "defying", "vi": "thách thức/bất tuân", "en": "refusing to obey", "ex": "Defying the emperor's laws." },
+      { "w": "conscription", "vi": "lệnh tòng quân", "en": "compulsory military service", "ex": "To spare husbands from conscription." }
+    ],
+    "quiz": [
+      { "q": "When is Valentine’s Day celebrated?", "a": ["Feb 1", "Feb 14", "Mar 1", "Feb 27"], "correct": 1 },
+      { "q": "Who was the emperor mentioned in the text?", "a": ["Nero", "Claudius II", "Caesar", "Augustus"], "correct": 1 },
+      { "q": "Which poet linked the day to birds choosing mates?", "a": ["Shakespeare", "Chaucer", "Orléans", "Paston"], "correct": 1 },
+      { "q": "What was the total US spending in 2025?", "a": ["$1B", "$27.5B", "$53B", "$188M"], "correct": 1 },
+      { "q": "The festival Lupercalia was associated with:", "a": ["War", "Fertility", "Books", "Winter"], "correct": 1 }
+    ]
+  }
 }
