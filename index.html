@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Archive - Pastel Sidebar</title>
+    <style>
+        :root {
+            --pastel-blue: #a2d2ff;
+            --pastel-pink: #ffafcc;
+            --sidebar-width: 300px;
+        }
+
+        body {
+            margin: 0; font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+            display: flex; height: 100vh; overflow: hidden;
+        }
+
+        /* --- NÚT 3 GẠCH (HAMBURGER) --- */
+        .menu-btn {
+            position: fixed; top: 20px; left: 20px;
+            z-index: 1000; cursor: pointer;
+            background: white; border: none; padding: 10px;
+            border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            font-size: 24px; transition: 0.3s;
+        }
+        .menu-btn:hover { background: var(--pastel-blue); color: white; }
+
+        /* --- SIDEBAR TRƯỢT --- */
+        #sidebar {
+            width: var(--sidebar-width); height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(15px);
+            position: fixed; left: calc(-1 * var(--sidebar-width)); /* Ẩn đi ban đầu */
+            top: 0; transition: 0.4s ease-in-out;
+            z-index: 999; border-right: 1px solid rgba(255,255,255,0.3);
+            display: flex; flex-direction: column; padding: 80px 20px 20px 20px;
+            box-shadow: 5px 0 15px rgba(0,0,0,0.05);
+        }
+
+        #sidebar.active { left: 0; } /* Hiện khi có class active */
+
+        /* Lớp phủ mờ khi mở menu */
+        #overlay {
+            display: none; position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%; background: rgba(0,0,0,0.2);
+            z-index: 998; backdrop-filter: blur(2px);
+        }
+        #overlay.active { display: block; }
+
+        .article-item {
+            padding: 15px; border-radius: 15px; background: white;
+            margin-bottom: 10px; cursor: pointer; transition: 0.3s;
+        }
+        .article-item:hover { background: var(--pastel-blue); color: white; }
+
+        /* --- MAIN CONTENT --- */
+        #main-content {
+            flex-grow: 1; padding: 40px; overflow-y: auto; width: 100%;
+            padding-top: 80px; /* Chừa chỗ cho nút menu */
+        }
+
+        .reader-card {
+            max-width: 800px; margin: auto; background: rgba(255,255,255,0.85);
+            padding: 40px; border-radius: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .word { cursor: pointer; border-radius: 4px; padding: 0 2px; }
+        .word:hover { background: var(--pastel-blue); color: white; }
+        .hl { background: #fff3bf; font-weight: bold; border-bottom: 2px solid #fab005; }
+        
+        /* Quiz Styling */
+        .ans-btn {
+            display: block; width: 100%; padding: 12px; margin: 5px 0;
+            border: 1px solid #ddd; border-radius: 10px; background: white; cursor: pointer;
+        }
+        .ans-btn.selected { background: var(--pastel-pink); color: white; }
+        .submit-btn { width: 100%; padding: 15px; background: var(--pastel-blue); border: none; border-radius: 15px; color: white; font-weight: bold; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+    <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+
+    <div id="overlay" onclick="toggleSidebar()"></div>
+
+    <div id="sidebar">
+        <h2 style="color: #6d597a;">📚 Thư viện</h2>
+        <div id="article-list"></div>
+    </div>
+
+    <div id="main-content">
+        <div class="reader-card">
+            <h1 id="title">Click menu để chọn bài</h1>
+            <div id="content" style="line-height: 2; font-size: 1.2rem;"></div>
+            <div id="vocab-area"></div>
+            <div id="quiz-area"></div>
+        </div>
+    </div>
+
+    <script>
+        // 1. Danh sách file trên GitHub của bạn
+        const myArticles = [
+            { id: "data", title: "Future of AI", desc: "Học về trí tuệ nhân tạo" },
+            { id: "nature", title: "Save the Planet", desc: "Từ vựng môi trường" }
+        ];
+
+        // 2. Hàm đóng/mở Sidebar
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+            document.getElementById('overlay').classList.toggle('active');
+        }
+
+        // 3. Hiển thị danh sách
+        function displayList() {
+            const listDiv = document.getElementById('article-list');
+            listDiv.innerHTML = myArticles.map(item => `
+                <div class="article-item" onclick="loadArticle('${item.id}')">
+                    <h4>${item.title}</h4>
+                    <small>${item.desc}</small>
+                </div>
+            `).join('');
+        }
+
+        // 4. Load bài báo và tự động đóng sidebar sau khi chọn
+        async function loadArticle(fileId) {
+            try {
+                const res = await fetch(`${fileId}.json`);
+                const data = await res.json();
+                renderArticle(data);
+                toggleSidebar(); // Đóng sidebar sau khi chọn xong
+            } catch (e) {
+                alert("Lỗi tải file JSON!");
+            }
+        }
+
+        function renderArticle(data) {
+            document.getElementById('title').innerText = data.title;
+            const contentDiv = document.getElementById('content');
+            contentDiv.innerHTML = "";
+            
+            data.content.split(" ").forEach(word => {
+                const span = document.createElement('span');
+                const clean = word.toLowerCase().replace(/[^a-z]/g, "");
+                span.className = "word" + (data.highlights.includes(clean) ? " hl" : "");
+                span.innerText = word + " ";
+                span.onclick = () => alert(`Đang tra từ: ${clean}...`);
+                contentDiv.appendChild(span);
+            });
+
+            // Tự động render tiếp phần Bảng từ vựng và Quiz giống như code trước của bạn...
+            // (Bạn hãy copy các hàm renderVocab và renderQuiz vào đây)
+        }
+
+        displayList();
+    </script>
+</body>
+</html>
