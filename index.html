@@ -135,19 +135,51 @@
             }
         }
 
-        function renderArticle(data) {
-            document.getElementById('title').innerText = data.title;
-            const contentDiv = document.getElementById('content');
-            contentDiv.innerHTML = "";
-            
-            data.content.split(" ").forEach(word => {
-                const span = document.createElement('span');
-                const clean = word.toLowerCase().replace(/[^a-z]/g, "");
-                span.className = "word" + (data.highlights.includes(clean) ? " hl" : "");
-                span.innerText = word + " ";
-                span.onclick = () => alert(`Đang tra từ: ${clean}...`);
-                contentDiv.appendChild(span);
-            });
+      function renderArticle(data) {
+    // Đổi màu theme nếu là bài Valentine
+    if (data.title.includes("Valentine")) {
+        document.body.classList.add('valentine-theme');
+    } else {
+        document.body.classList.remove('valentine-theme');
+    }
+
+    document.getElementById('title').innerText = data.title;
+    const contentDiv = document.getElementById('content');
+    contentDiv.innerHTML = ""; // Xóa nội dung cũ
+
+    // Duyệt qua từng section để hiển thị ảnh và chữ
+    data.sections.forEach(section => {
+        if (section.heading) {
+            contentDiv.innerHTML += `<h3 style="color:#d81b60; margin-top:30px;">${section.heading}</h3>`;
+        }
+        
+        if (section.imageUrl) {
+            contentDiv.innerHTML += `
+                <div style="text-align:center; margin: 20px 0;">
+                    <img src="${section.imageUrl}" alt="${section.imageAlt}" 
+                         style="max-width:100%; border-radius:15px; box-shadow:0 8px 20px rgba(0,0,0,0.15);">
+                    <p style="font-size:0.8rem; color:#666; font-style:italic;">${section.imageAlt}</p>
+                </div>`;
+        }
+
+        const p = document.createElement('p');
+        p.style.marginBottom = "20px";
+        
+        section.text.split(" ").forEach(word => {
+            const clean = word.toLowerCase().replace(/[^a-z]/g, "");
+            const span = document.createElement('span');
+            span.className = "word" + (data.highlights.includes(clean) ? " hl" : "");
+            span.innerText = word + " ";
+            span.onclick = () => quickTranslate(clean);
+            p.appendChild(span);
+        });
+        contentDiv.appendChild(p);
+    });
+
+    // Sau đó gọi các hàm renderVocab và renderQuiz như cũ...
+    renderVocab(data);
+    renderQuiz(data);
+}
 
             // Tự động render tiếp phần Bảng từ vựng và Quiz giống như code trước của bạn...
             // (Bạn hãy copy các hàm renderVocab và renderQuiz vào đây)
